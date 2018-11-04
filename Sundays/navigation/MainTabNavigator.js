@@ -4,15 +4,14 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import RecipesScreen from '../screens/RecipesScreen';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+const CountryStack = createStackNavigator({
+  Country: HomeScreen,
 });
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+CountryStack.navigationOptions = {
+  tabBarLabel: 'Country Generator',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -25,12 +24,12 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const RecipesStack = createStackNavigator({
+  Recipes: RecipesScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+RecipesStack.navigationOptions = {
+  tabBarLabel: 'Recipes',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -39,22 +38,7 @@ LinksStack.navigationOptions = {
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
-});
-
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
-    />
-  ),
-};
-
 export default createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
+  CountryStack,
+  RecipesStack,
 });
